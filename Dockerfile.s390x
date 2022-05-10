@@ -1,19 +1,20 @@
 ARG GOLANG_VERSION=1.13.15
-FROM library/golang:${GOLANG_VERSION}-alpine3.13
-RUN apk --no-cache add \
-    bash \
-    coreutils \
-    curl \
-    docker \
-    file \
-    g++ \
-    gcc \
-    git \
-    make \
-    mercurial \
-    rsync \
-    subversion \
-    wget
+#FROM library/golang:${GOLANG_VERSION}-alpine3.13
+#RUN apk --no-cache add \
+    #bash \
+    #coreutils \
+    #curl \
+    #docker \
+    #file \
+    #g++ \
+    #gcc \
+    #git \
+    #make \
+    #mercurial \
+    #rsync \
+    #subversion \
+    #wget
+FROM library/golang:${GOLANG_VERSION}-buster
 COPY scripts/ /usr/local/go/bin/
 RUN set -x \
  && chmod -v +x /usr/local/go/bin/go-*.sh \
